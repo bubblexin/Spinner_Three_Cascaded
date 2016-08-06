@@ -87,16 +87,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
         switch (parent.getId()) {
+            //点击的是第一个spinner的item
             case R.id.sp_category1:
                 titleName_list = new ArrayList<>();
                 List<GoodsTypes> goodsTypes = goods.get(position).getTags();
                 for (GoodsTypes g : goodsTypes) {
                     titleName_list.add(g.getTitle());
                 }
-                //调用ArrayAdapter的clear()方法和addAll()方法,而不是spinner的方法
+                //调用ArrayAdapter的clear()方法和addAll()方法,而不是spinner的方法，填充第二个Spinner
                 adp_title.clear();
                 adp_title.addAll(titleName_list);
 
+
+                /**
+                 * 点击第一个spinner中的item时，第二个和第三个应该都是联动的，所以在这里设置
+                 * 根据第二个Spinner中的itemID来填充第三个Spinner
+                 */
                 category2Name_list = new ArrayList<>();
                 /**
                  *  在这里要得到第二个下拉列表框的itemID，根据第二个下拉列表框的itemID来填充第三个下拉列表框
@@ -113,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 sp_title.setSelection(0);
                 sp_category2.setSelection(0);
                 break;
+            //点击的是第二个spinner的item
             case R.id.sp_title:
                 /**
                  * 每次选择的时候重新new一下第三个spinner填充list，相当于将list清空，
