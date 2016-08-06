@@ -7,7 +7,7 @@ Spinner下拉列表框的三级联动
 3.在主函数中实例化控件，定义数据初始化方法，实例化adapter和存储数据的集合，为spinner控件setAdapter()
 4.设置要级联的Spinner的setOnItemSelectedListener()监听事件
 5.主要的逻辑都是在spinner控件的onItemSelected回调函数中完成，在其中加入了一个switch语句，用来判断点击的是哪个spinner的item。
-
+6.具体的逻辑以及实现请看代码
 
 注意：
 1.每个Spinner都要实例化（findViewById），每个存储信息的List都要实例化，每个Adapter适配器都要实例化。
